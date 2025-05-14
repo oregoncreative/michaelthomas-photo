@@ -1,52 +1,374 @@
-<footer class="border-t bg-white px-8">
-  <div class="magazine-container py-16">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
-      <div class="md:col-span-2">
-        <a href="/" class="mb-4 inline-block font-serif text-2xl font-medium tracking-tight"> MichaelThomas.Photo </a>
-        <p class="text-muted-foreground mb-6 max-w-md">Documenting urban life in Eugene, Oregon — photographing public
-          spaces, the characters I meet, and the stories that unfold through the lens.</p>
-        <div class="flex space-x-4">
-          <a href="https://flickr.com/photos/michaelthomasphoto/" class="transition-opacity hover:opacity-80"
-             aria-label="Flickr" target="_blank" rel="noopener">
-            <img src="flickr.png"
-                 alt="Flickr" width="32" height="32" class="rounded"/>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Essence Magazine</title>
+  <meta content="A curated magazine exploring design, culture, and thoughtful living" name="description"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Configure Tailwind (ignore TypeScript error - this is available at runtime via CDN)
+    // @ts-ignore
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            background: '#ffffff',
+            foreground: '#1a1a1a',
+            'muted-foreground': '#6b6b6b',
+            primary: '#1a73e8',
+            'primary-foreground': '#ffffff',
+            secondary: '#f7f7f7',
+            'secondary-foreground': '#1a1a1a',
+          },
+        },
+      },
+    }
+  </script>
+  <style type="text/css">
+      /* Custom utility classes */
+      .magazine-container {
+          width: 100%;
+          max-width: 1280px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      .glass-effect {
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(8px);
+      }
+
+      .article-card {
+          background-color: white;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .article-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link {
+          position: relative;
+          color: #1a1a1a;
+          font-weight: 500;
+          font-size: 0.875rem;
+          transition: color 0.3s ease;
+      }
+
+      .nav-link:after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 1px;
+          bottom: -4px;
+          left: 0;
+          background-color: #1a73e8;
+          transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+          color: #1a73e8;
+      }
+
+      .nav-link:hover:after {
+          width: 100%;
+      }
+
+      /* Animation classes */
+      .animate-fade-in {
+          animation: fadeIn 1s ease-out;
+      }
+
+      .animate-scale-in {
+          animation: scaleIn 1.2s ease-out;
+      }
+
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+      }
+
+      /* Shadow utility */
+      .shadow-sm {
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      }
+  </style>
+</head>
+<body class="bg-background text-foreground antialiased">
+<div id="site-header"></div>
+<main class="px-8">
+  <!-- Hero Section -->
+
+  <!-- Articles Grid Section -->
+  <section class="bg-secondary/30 py-20">
+    <div class="magazine-container">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mt-6">
+        <!-- Article Card 1 -->
+        <article class="article-card overflow-hidden rounded-lg">
+          <a class="block" href="#">
+            <div class="overflow-hidden">
+              <img alt="Slow Living" class="h-64 w-full object-cover" src="20250426-SESN5387.jpg"/>
+            </div>
+            <div class="p-6">
+              <div class="mb-3">
+                <span class="text-primary text-xs font-medium tracking-wider uppercase"> Lifestyle </span>
+              </div>
+              <h3 class="mb-3 font-serif text-xl font-medium">The Art of Slow Living in Modern Cities</h3>
+              <p class="text-muted-foreground mb-4 text-sm">Exploring how urban dwellers are embracing mindfulness and intentional living amidst the chaos.</p>
+              <div class="text-muted-foreground flex items-center justify-between text-xs">
+                <span>Emma Chen</span>
+                <span>May 23, 2023</span>
+              </div>
+            </div>
           </a>
-        </div>
-      </div>
-
-      <div>
-        <h3 class="mb-4 text-sm font-medium tracking-wider uppercase">Explore</h3>
-        <ul class="space-y-2">
-          <li><a href="/index.html" class="text-muted-foreground hover:text-primary text-sm transition-colors">Home</a>
-          </li>
-          <li><a href="/entries.html"
-                 class="text-muted-foreground hover:text-primary text-sm transition-colors">Entries</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="mb-4 text-sm font-medium tracking-wider uppercase">Information</h3>
-        <ul class="space-y-2">
-          <li><a href="/about.html" class="text-muted-foreground hover:text-primary text-sm transition-colors">About</a>
-          </li>
-          <li><a href="/contact.html"
-                 class="text-muted-foreground hover:text-primary text-sm transition-colors">Contact</a></li>
-        </ul>
+        </article>
+        <!-- Article Card 2 -->
+        <article class="article-card overflow-hidden rounded-lg">
+          <a class="block" href="#">
+            <div class="overflow-hidden">
+              <img alt="Culinary Traditions" class="h-64 w-full object-cover" src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=876&amp;q=80"/>
+            </div>
+            <div class="p-6">
+              <div class="mb-3">
+                <span class="text-primary text-xs font-medium tracking-wider uppercase"> Food </span>
+              </div>
+              <h3 class="mb-3 font-serif text-xl font-medium">Culinary Traditions Reimagined</h3>
+              <p class="text-muted-foreground mb-4 text-sm">How chefs are preserving cultural heritage while innovating with modern techniques.</p>
+              <div class="text-muted-foreground flex items-center justify-between text-xs">
+                <span>Marcus Johnson</span>
+                <span>April 15, 2023</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        <!-- Article Card 3 -->
+        <article class="article-card overflow-hidden rounded-lg">
+          <a class="block" href="#">
+            <div class="overflow-hidden">
+              <img alt="Digital Craftsmanship" class="h-64 w-full object-cover" src="https://images.unsplash.com/photo-1517142089942-ba376ce32a2e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=870&amp;q=80"/>
+            </div>
+            <div class="p-6">
+              <div class="mb-3">
+                <span class="text-primary text-xs font-medium tracking-wider uppercase"> Design </span>
+              </div>
+              <h3 class="mb-3 font-serif text-xl font-medium">The New Era of Digital Craftsmanship</h3>
+              <p class="text-muted-foreground mb-4 text-sm">Artisans embracing technology to create unique pieces that blur the line between traditional and digital.</p>
+              <div class="text-muted-foreground flex items-center justify-between text-xs">
+                <span>Nicole Patel</span>
+                <span>June 7, 2023</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        <article class="article-card overflow-hidden rounded-lg">
+          <a class="block" href="#">
+            <div class="overflow-hidden">
+              <img alt="Slow Living" class="h-64 w-full object-cover" src="https://images.unsplash.com/photo-1493809842364-b78817add7ffb?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=870&amp;q=80"/>
+            </div>
+            <div class="p-6">
+              <div class="mb-3">
+                <span class="text-primary text-xs font-medium tracking-wider uppercase"> Lifestyle </span>
+              </div>
+              <h3 class="mb-3 font-serif text-xl font-medium">The Art of Slow Living in Modern Cities</h3>
+              <p class="text-muted-foreground mb-4 text-sm">Exploring how urban dwellers are embracing mindfulness and intentional living amidst the chaos.</p>
+              <div class="text-muted-foreground flex items-center justify-between text-xs">
+                <span>Emma Chen</span>
+                <span>May 23, 2023</span>
+              </div>
+            </div>
+          </a>
+        </article><article class="article-card overflow-hidden rounded-lg">
+        <a class="block" href="#">
+          <div class="overflow-hidden">
+            <img alt="Culinary Traditions" class="h-64 w-full object-cover" src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=876&amp;q=80"/>
+          </div>
+          <div class="p-6">
+            <div class="mb-3">
+              <span class="text-primary text-xs font-medium tracking-wider uppercase"> Food </span>
+            </div>
+            <h3 class="mb-3 font-serif text-xl font-medium">Culinary Traditions Reimagined</h3>
+            <p class="text-muted-foreground mb-4 text-sm">How chefs are preserving cultural heritage while innovating with modern techniques.</p>
+            <div class="text-muted-foreground flex items-center justify-between text-xs">
+              <span>Marcus Johnson</span>
+              <span>April 15, 2023</span>
+            </div>
+          </div>
+        </a>
+      </article><article class="article-card overflow-hidden rounded-lg">
+        <a class="block" href="#">
+          <div class="overflow-hidden">
+            <img alt="Digital Craftsmanship" class="h-64 w-full object-cover" src="https://images.unsplash.com/photo-1517142089942-ba376ce32a2e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=870&amp;q=80"/>
+          </div>
+          <div class="p-6">
+            <div class="mb-3">
+              <span class="text-primary text-xs font-medium tracking-wider uppercase"> Design </span>
+            </div>
+            <h3 class="mb-3 font-serif text-xl font-medium">The New Era of Digital Craftsmanship</h3>
+            <p class="text-muted-foreground mb-4 text-sm">Artisans embracing technology to create unique pieces that blur the line between traditional and digital.</p>
+            <div class="text-muted-foreground flex items-center justify-between text-xs">
+              <span>Nicole Patel</span>
+              <span>June 7, 2023</span>
+            </div>
+          </div>
+        </a>
+      </article></div>
+      <div class="mt-12 text-center md:hidden">
+        <a class="group inline-flex items-center text-sm font-medium tracking-wider uppercase" href="#">
+          View All Articles
+          <svg class="ml-2 transition-transform group-hover:translate-x-1" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+            <line x1="5" x2="19" y1="12" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </div>
     </div>
-  </div>
-
-  <div class="border-t">
-    <div class="magazine-container flex flex-col items-center justify-between py-6 md:flex-row">
-      <button class="group inline-flex items-center text-sm font-medium">
-        Back to top
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-             class="ml-2 transition-transform group-hover:-translate-y-1">
-          <line x1="12" y1="19" x2="12" y2="5"></line>
-          <polyline points="5 12 12 5 19 12"></polyline>
-        </svg>
-      </button>
+  </section>
+  <!-- Newsletter Section -->
+  <section class="bg-primary text-primary-foreground py-20">
+    <div class="magazine-container text-center">
+      <div class="mx-auto max-w-2xl">
+        <span class="mb-3 inline-block text-xs tracking-widest uppercase opacity-80"> Stay Updated </span>
+        <h2 class="mb-6 font-serif text-3xl font-medium md:text-4xl">Subscribe to Our Newsletter</h2>
+        <p class="text-primary-foreground/80 mx-auto mb-8 max-w-lg">Join our community of readers and receive the latest stories, interviews, and insights delivered directly to your inbox.</p>
+        <form class="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
+          <input class="bg-primary-foreground/10 text-primary-foreground border-primary-foreground/20 focus:ring-primary-foreground/30 placeholder:text-primary-foreground/50 flex-grow rounded-md border px-4 py-3 focus:ring-2 focus:outline-none" placeholder="Your email address" required="" type="email"/>
+          <button class="group bg-primary-foreground text-primary hover:bg-primary-foreground/90 inline-flex items-center justify-center rounded-md px-5 py-3 font-medium transition-all" type="submit">
+            Subscribe
+            <svg class="ml-2 transition-transform group-hover:translate-x-1" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+              <line x1="5" x2="19" y1="12" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+        <p class="text-primary-foreground/60 mt-6 text-xs">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
     </div>
+  </section>
+</main>
+<!-- Footer -->
+<div id="site-footer"></div>
+<!-- Mobile Navigation Overlay -->
+<div class="fixed inset-0 z-40 translate-x-full transform bg-white transition-transform duration-300 ease-in-out">
+  <div class="flex h-full flex-col items-center justify-center space-y-8 p-8">
+    <button aria-label="Close menu" class="absolute top-8 right-8">
+      <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+        <line x1="18" x2="6" y1="6" y2="18"></line>
+        <line x1="6" x2="18" y1="6" y2="18"></line>
+      </svg>
+    </button>
+    <a class="text-2xl font-medium" href="#">Home</a>
+    <a class="text-2xl font-medium" href="#">Features</a>
+    <a class="text-2xl font-medium" href="#">Culture</a>
+    <a class="text-2xl font-medium" href="#">Style</a>
+    <a class="text-2xl font-medium" href="#">About</a>
   </div>
-</footer>
+</div>
+<!-- JavaScript for interactive elements -->
+<script>
+  // Header scroll effect
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white', 'shadow-sm');
+        header.classList.remove('bg-transparent');
+      } else {
+        header.classList.add('bg-transparent');
+        header.classList.remove('bg-white', 'shadow-sm');
+      }
+    }
+  });
+
+  // Mobile menu toggle
+  const menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+  const closeButton = document.querySelector('button[aria-label="Close menu"]');
+  const mobileNav = document.querySelector('.fixed.inset-0.z-40');
+
+  if (menuButton && closeButton && mobileNav) {
+    menuButton.addEventListener('click', function() {
+      mobileNav.classList.remove('translate-x-full');
+    });
+
+    closeButton.addEventListener('click', function() {
+      mobileNav.classList.add('translate-x-full');
+    });
+  }
+
+  // Back to top button
+  const backToTopButton = document.querySelector('button.group');
+  if (backToTopButton) {
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
+<script>
+  fetch('/header.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('site-header').innerHTML = html;
+    });
+</script>
+<!--load the site footer -->
+<script>
+  fetch('/footer.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('site-footer').innerHTML = html;
+    });
+</script>
+<!-- JavaScript for interactive elements -->
+<script>
+  // Header scroll effect
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white', 'shadow-sm');
+        header.classList.remove('bg-transparent');
+      } else {
+        header.classList.add('bg-transparent');
+        header.classList.remove('bg-white', 'shadow-sm');
+      }
+    }
+  });
+
+  // Mobile menu toggle
+  const menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+  const closeButton = document.querySelector('button[aria-label="Close menu"]');
+  const mobileNav = document.querySelector('.fixed.inset-0.z-40');
+
+  if (menuButton && closeButton && mobileNav) {
+    menuButton.addEventListener('click', function() {
+      mobileNav.classList.remove('translate-x-full');
+    });
+
+    closeButton.addEventListener('click', function() {
+      mobileNav.classList.add('translate-x-full');
+    });
+  }
+
+  // Back to top button
+  const backToTopButton = document.querySelector('button.group');
+  if (backToTopButton) {
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
+</body>
+</html>
