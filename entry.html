@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michael Thomas Photo</title>
+  ...
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            background: '#ffffff',
+            foreground: '#1a1a1a',
+            'muted-foreground': '#6b6b6b',
+            primary: '#1a73e8',
+            'primary-foreground': '#ffffff',
+            secondary: '#f7f7f7',
+            'secondary-foreground': '#1a1a1a',
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="/css/custom.css" />
+</head>
+<body class="bg-background text-foreground antialiased">
+<div id="site-header"></div>
+
+<main class="px-8 pt-32 pb-20">
+  <article class="magazine-container max-w-3xl mx-auto animate-fade-in">
+    <!-- Title -->
+    <header class="mb-10 text-center">
+      <h1 class="font-serif text-4xl font-medium md:text-5xl">Common Ground</h1>
+      <p class="text-muted-foreground mt-4 text-lg">Photographing in public spaces, thoughts on the characters I meet and the photographic process.</p>
+    </header>
+
+    <!-- Hero Image -->
+    <figure class="overflow-hidden rounded-sm mb-10">
+      <img src="20250426-SESN5387.jpg" alt="Hero Image" class="w-full object-cover">
+      <figcaption class="glass-effect p-3 text-xs mt-2 text-right"><span class="font-medium">Aaryn</span></figcaption>
+    </figure>
+
+    <!-- Article Body -->
+    <section class="prose prose-lg text-foreground max-w-none">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at quam sed magna hendrerit posuere.
+        Nulla facilisi. Proin id turpis ac risus tincidunt volutpat. Curabitur at massa justo. Nam fermentum
+        suscipit ex, vitae porta risus pretium et. Vestibulum ante ipsum primis in faucibus orci luctus et
+        ultrices posuere cubilia curae; Sed et mauris in erat bibendum ullamcorper. Nullam posuere tempor velit,
+        non lobortis est aliquet sit amet.
+      </p>
+    </section>
+
+    <!-- Hero Image -->
+    <figure class="overflow-hidden rounded-sm mb-10">
+      <img src="20250426-SESN5387.jpg" alt="Hero Image" class="w-full object-cover">
+      <figcaption class="glass-effect p-3 text-xs mt-2 text-right"><span class="font-medium">Aaryn</span></figcaption>
+    </figure>
+
+    <!-- Article Body -->
+    <section class="prose prose-lg text-foreground max-w-none">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at quam sed magna hendrerit posuere.
+        Nulla facilisi. Proin id turpis ac risus tincidunt volutpat. Curabitur at massa justo. Nam fermentum
+        suscipit ex, vitae porta risus pretium et. Vestibulum ante ipsum primis in faucibus orci luctus et
+        ultrices posuere cubilia curae; Sed et mauris in erat bibendum ullamcorper. Nullam posuere tempor velit,
+        non lobortis est aliquet sit amet.
+      </p>
+    </section>
+
+    <!-- Hero Image -->
+    <figure class="overflow-hidden rounded-sm mb-10">
+      <img src="20250426-SESN5387.jpg" alt="Hero Image" class="w-full object-cover">
+      <figcaption class="glass-effect p-3 text-xs mt-2 text-right"><span class="font-medium">Aaryn</span></figcaption>
+    </figure>
+
+    <!-- Article Body -->
+    <section class="prose prose-lg text-foreground max-w-none">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at quam sed magna hendrerit posuere.
+        Nulla facilisi. Proin id turpis ac risus tincidunt volutpat. Curabitur at massa justo. Nam fermentum
+        suscipit ex, vitae porta risus pretium et. Vestibulum ante ipsum primis in faucibus orci luctus et
+        ultrices posuere cubilia curae; Sed et mauris in erat bibendum ullamcorper. Nullam posuere tempor velit,
+        non lobortis est aliquet sit amet.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<!-- Footer -->
+<!-- If you're using Web Components or JS includes, you might load it dynamically -->
+<div id="site-footer"></div>
+
+
+<!-- load the site header -->
+<script>
+  fetch('/header.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('site-header').innerHTML = html;
+    });
+</script>
+
+<!--load the site footer -->
+<script>
+  fetch('/footer.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('site-footer').innerHTML = html;
+    });
+</script>
+
+<!-- JavaScript for interactive elements -->
+<script>
+  // Header scroll effect
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white', 'shadow-sm');
+        header.classList.remove('bg-transparent');
+      } else {
+        header.classList.add('bg-transparent');
+        header.classList.remove('bg-white', 'shadow-sm');
+      }
+    }
+  });
+
+  // Mobile menu toggle
+  const menuButton = document.querySelector('button[aria-label="Toggle menu"]');
+  const closeButton = document.querySelector('button[aria-label="Close menu"]');
+  const mobileNav = document.querySelector('.fixed.inset-0.z-40');
+
+  if (menuButton && closeButton && mobileNav) {
+    menuButton.addEventListener('click', function() {
+      mobileNav.classList.remove('translate-x-full');
+    });
+
+    closeButton.addEventListener('click', function() {
+      mobileNav.classList.add('translate-x-full');
+    });
+  }
+
+  // Back to top button
+  const backToTopButton = document.querySelector('button.group');
+  if (backToTopButton) {
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>
+</body>
+</html>
